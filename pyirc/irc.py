@@ -33,12 +33,12 @@ class Client:
         message = bytes(message, "UTF-8")
         packet = f"PRIVMSG {target} :{message}n"
         await self.__socket.send(packet)
-    async def _get_msg(self):
-        return await self._get_raw.decode("UTF-8").strip("nr")
+    async def _get_msg(self, raw):
+        return await raw.decode("UTF-8").strip("nr")
     async def _get_raw(self):
         return await self.__socket.recv(2048)
     async def get_msg(self):
-        msg = await self._get_msg()
+        msg = await self._get_msg(await self._get_raw())
         if msg.find("PRIVMSG") != 1:
             # It's a message!
             name = msg.split('!',1)[0][1:]
