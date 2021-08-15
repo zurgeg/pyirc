@@ -4,3 +4,4 @@ class EventTypes(Enum):
     MESSAGE = auto()
     MEMBER_LEAVE = auto()
     MEMBER_JOIN = auto()
+    OTHER = -1
