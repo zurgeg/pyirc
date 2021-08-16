@@ -35,40 +35,34 @@
             
   <section id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
-<p>To begin using PyIRC, create a client:
-.. code-block:: python</p>
+<p>To begin using PyIRC, create a client:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 <p>from pyirc.irc import client
 # Now we create the client
 irc = Client(“myserver.local”, 1234) # Replace myserver.local with your server, and 1234 with your port</p>
-<p>The next step is to create an <cite>asyncio</cite> mainloop, this is important because PyIRC is async.
-.. code-block:: python</p>
-<blockquote>
-<div><dl class="simple">
-<dt>async def mainloop(client):</dt><dd><dl class="simple">
-<dt>while True:</dt><dd><p>await client.ping() # Ping the IRC server.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
-<p>Now we can run it. But first, you need to import <cite>asyncio.run</cite> at the top of your code:
-.. code-block:: python</p>
-<blockquote>
-<div><p>from asyncio import run
-# …</p>
-</div></blockquote>
-<p>Now we can actually run the mainloop:
-.. code-block:: python</p>
-<blockquote>
-<div><p># …
-run(mainloop(irc))</p>
-</div></blockquote>
-<p>Now, you may have noticed absolutely nothing happened! This is because your client has only connected to the server and started pinging. To join a channel, you can use <code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.join_channel()</span></code>, like so:
-.. code-block:: python</p>
-<blockquote>
-<div><p># In your mainloop, above the while True loop:
-await client.join_channel(“#example”)</p>
-</div></blockquote>
+<p>The next step is to create an <cite>asyncio</cite> mainloop, this is important because PyIRC is async.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">mainloop</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">ping</span><span class="p">()</span> <span class="c1"># Ping the IRC server.</span>
+</pre></div>
+</div>
+<p>Now we can run it. But first, you need to import <cite>asyncio.run</cite> at the top of your code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">asyncio</span> <span class="kn">import</span> <span class="n">run</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>Now we can actually run the mainloop:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
+<span class="n">run</span><span class="p">(</span><span class="n">mainloop</span><span class="p">(</span><span class="n">irc</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Now, you may have noticed absolutely nothing happened! This is because your client has only connected to the server and started pinging. To join a channel, you can use <code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.join_channel()</span></code>, like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In your mainloop, above the while True loop:</span>
+<span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">join_channel</span><span class="p">(</span><span class="s2">&quot;#example&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Of course, replacing <cite>#example</cite> with a channel.</p>
 <p>For more info, you can look at <a class="reference internal" href="reference.html#Client" title="Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a>, or use <a class="reference internal" href="reference.html#Bot" title="Bot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bot</span></code></a> to create a more high-level bot.</p>
 </section>
