@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Quickstart &#8212; PyIRC v0.1.0-beta documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Reference" href="reference.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+<p>To begin using PyIRC, create a client:
+.. code-block:: python</p>
+<p>from pyirc.irc import client
+# Now we create the client
+irc = Client(“myserver.local”, 1234) # Replace myserver.local with your server, and 1234 with your port</p>
+<p>The next step is to create an <cite>asyncio</cite> mainloop, this is important because PyIRC is async.
+.. code-block:: python</p>
+<blockquote>
+<div><dl class="simple">
+<dt>async def mainloop(client):</dt><dd><dl class="simple">
+<dt>while True:</dt><dd><p>await client.ping() # Ping the IRC server.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>Now we can run it. But first, you need to import <cite>asyncio.run</cite> at the top of your code:
+.. code-block:: python</p>
+<blockquote>
+<div><p>from asyncio import run
+# …</p>
+</div></blockquote>
+<p>Now we can actually run the mainloop:
+.. code-block:: python</p>
+<blockquote>
+<div><p># …
+run(mainloop(irc))</p>
+</div></blockquote>
+<p>Now, you may have noticed absolutely nothing happened! This is because your client has only connected to the server and started pinging. To join a channel, you can use <code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.join_channel()</span></code>, like so:
+.. code-block:: python</p>
+<blockquote>
+<div><p># In your mainloop, above the while True loop:
+await client.join_channel(“#example”)</p>
+</div></blockquote>
+<p>Of course, replacing <cite>#example</cite> with a channel.</p>
+<p>For more info, you can look at <a class="reference internal" href="reference.html#Client" title="Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a>, or use <a class="reference internal" href="reference.html#Bot" title="Bot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bot</span></code></a> to create a more high-level bot.</p>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PyIRC</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">API Reference</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="installation.html" title="previous chapter">Installation</a></li>
+      <li>Next: <a href="reference.html" title="next chapter">API Reference</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, zurgeg.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/usage/quickstart.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
