@@ -1,33 +1,34 @@
 API Reference 
 ==============  
-.. class:: Client
+.. py:class:: Client
   Class for interfacing with IRC in a low-level way.
 
-  .. method:: Client.join_channel(channel : string) -> None
+  .. py:method:: Client.join_channel(channel : string) -> None
     Joins a channel.
     :async:
     :param str channel: The channel to join
     :return: None.
     :rtype: NoneType
 
-  .. method:: Client.ping() -> None
+  .. py:method:: Client.ping() -> None
     Tells the server the client is still connected
     :async:
     :return: None.
     :rtype: NoneType
 
-  .. method:: Client.get_msg() -> :class:`Message` or None
+  .. py:method:: Client.get_msg() -> :class:`Message` or None
     Gets the latest message.
     :async:
     :return: A message class, or None if there were no messages.
     :rtype: Message or NoneType
-  :meth:`Client.join_channel`
+
+  py:meth:`Client.join_channel`
   
-  :meth:`Client.ping`
+  py:meth:`Client.ping`
   
-  :meth:`Client.get_msg`
+  py:meth:`Client.get_msg`
     
-.. class:: Bot
+.. py:class:: Bot
   Not yet documented.
 
 
