@@ -2,7 +2,6 @@ API Reference
 ==============  
 .. class:: Client
   Class for interfacing with IRC in a low-level way.
-  Methods:
 
   .. method:async: Client.join_channel(channel : string) -> None
     Joins a channel.
