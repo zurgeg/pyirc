@@ -19,6 +19,11 @@ API Reference
     Gets the latest message.
     :return: A message class, or None if there were no messages.
     :rtype: Message or NoneType
+  :meth:`Client.join_channel`
+  
+  :meth:`Client.ping`
+  
+  :meth:`Client.get_msg()`
     
 .. class:: Bot
   Not yet documented.
