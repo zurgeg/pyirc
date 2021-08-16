@@ -21,11 +21,11 @@ API Reference
     :async:
     :return: A message class, or None if there were no messages.
     :rtype: Message or NoneType
-  :func:`Client.join_channel`
+  :meth:`Client.join_channel`
   
-  :func:`Client.ping`
+  :meth:`Client.ping`
   
-  :func:`Client.get_msg`
+  :meth:`Client.get_msg`
     
 .. class:: Bot
   Not yet documented.
